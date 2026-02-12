@@ -26,13 +26,14 @@ jobs:
           cache: maven
         
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean package
 
       - name: Show generated files
-        run: find . -name "*.jar"
+       run: find . -name "*.jar"
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v4
-       with:
-          name: app-jar
-          path: '**/target/*.jar'
+  uses: actions/upload-artifact@v4
+  with:
+    name: app-jar
+    path: '**/target/*.jar'
+
